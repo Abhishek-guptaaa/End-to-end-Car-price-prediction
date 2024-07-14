@@ -1,0 +1,16 @@
+catboost==1.2.5
+Flask==3.0.3
+Jinja2==3.1.4
+joblib==1.4.2
+matplotlib==3.9.1
+mysql-connector-python ==9.0.0
+nest-asyncio==1.6.0
+numpy==2.0.0
+pandas==2.2.2
+python-dotenv==1.0.1
+scikit-learn==1.5.1
+scipy==1.13.1
+seaborn==0.13.2
+xgboost==2.1.0
+cryptography  # this is used handling cryptography error
+-e.
