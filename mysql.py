@@ -14,32 +14,22 @@ host = os.getenv("HOST")
 user = os.getenv("USER")
 password = os.getenv("PASSWORD")
 db = os.getenv("DB")
-
 def read_sql_data():
-    """Read data from SQL database."""
+    logging.info("Reading SQL database started")
     try:
-        # Establish database connection
-        mydb = pymysql.connect(
+        mydb=pymysql.connect(
             host=host,
             user=user,
             password=password,
             db=db
         )
-        logging.info("Connection established successfully.")
-        
-        # Read data from SQL
-        df = pd.read_sql_query('SELECT * FROM car data', mydb)
+        logging.info("Connection Established",mydb)
+        df=pd.read_sql_query('Select * from car',mydb)
         print(df.head())
-        return df
-        
-    except Exception as e:
-        raise CustomException(e, sys)
-    
-    finally:
-        # Ensure the database connection is closed
-        if 'mydb' in locals() and mydb.open:
-            mydb.close()
-            logging.info("Database connection closed.")
 
-if __name__ == "__main__":
-    read_sql_data()
+        return df
+
+
+
+    except Exception as ex:
+        raise CustomException(ex)
