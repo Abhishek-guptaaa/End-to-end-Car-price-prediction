@@ -1,4 +1,5 @@
 import os
+import sys
 import joblib
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder, StandardScaler, PolynomialFeatures
@@ -74,42 +75,48 @@ class DataCleaning:
         return preprocessor
 
     def initiate_data_cleaning(self, raw_data_path):
-        # Load data
-        data = pd.read_csv(raw_data_path)
+        try:
+            # Load data
+            data = pd.read_csv(raw_data_path)
 
-        # Clean data
-        data = self.clean_data(data)
+            # Clean data
+            data = self.clean_data(data)
 
-        # Save cleaned data
-        cleaned_data_path = Config.CLEANED_DATA_PATH
-        data.to_csv(cleaned_data_path, index=False)
+            # Save cleaned data
+            cleaned_data_path = Config.CLEANED_DATA_PATH
+            data.to_csv(cleaned_data_path, index=False)
 
-        return cleaned_data_path
+            return cleaned_data_path
+        except Exception as e:
+            raise CustomException(e, sys)
 
     def initiate_data_transformation(self, cleaned_data_path):
-        # Load cleaned data
-        data = pd.read_csv(cleaned_data_path)
+        try:
+            # Load cleaned data
+            data = pd.read_csv(cleaned_data_path)
 
-        # Separate features and target
-        X = data.drop(columns=['price'])
-        y = data['price']
+            # Separate features and target
+            X = data.drop(columns=['price'])
+            y = data['price']
 
-        # Split your data into train and test sets
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+            # Split your data into train and test sets
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-        # Get the preprocessor
-        preprocessor = self.get_data_transformer_object()
+            # Get the preprocessor
+            preprocessor = self.get_data_transformer_object()
 
-        # Fit and transform the training data
-        X_train_transformed = preprocessor.fit_transform(X_train)
+            # Fit and transform the training data
+            X_train_transformed = preprocessor.fit_transform(X_train)
 
-        # Transform the test data
-        X_test_transformed = preprocessor.transform(X_test)
+            # Transform the test data
+            X_test_transformed = preprocessor.transform(X_test)
 
-        # Save the preprocessor
-        os.makedirs('models', exist_ok=True)
-        joblib.dump(preprocessor, self.preprocessor_obj_file_path)
+            # Save the preprocessor
+            os.makedirs('models', exist_ok=True)
+            joblib.dump(preprocessor, self.preprocessor_obj_file_path)
 
-        logging.info("Data transformation complete and preprocessor saved.")
+            logging.info("Data transformation complete and preprocessor saved.")
 
-        return X_train_transformed, X_test_transformed, y_train, y_test
+            return X_train_transformed, X_test_transformed, y_train, y_test
+        except Exception as e:
+            raise CustomException(e, sys)

@@ -9,8 +9,8 @@ from car.exception import CustomException
 
 class ModelEvaluation:
     def __init__(self):
-        self.model_file_path = os.path.join("models", "model.pkl")
-        self.preprocessor_file_path = os.path.join("models", "preprocessor.pkl")
+        self.model_file_path = Config.MODEL_PATH
+        self.preprocessor_file_path = Config.PREPROCESSOR_PATH
 
     def load_object(self, file_path):
         try:
@@ -25,14 +25,16 @@ class ModelEvaluation:
             preprocessor = self.load_object(self.preprocessor_file_path)
 
             # Load the test data
-            X_test = pd.read_csv(Config.X_TEST_PATH)
-            y_test = pd.read_csv(Config.CLEANED_DATA_PATH)["price"]
+            X_test_transformed_path = Config.X_TEST_TRANSFORMED_PATH
+            y_test_path = Config.Y_TEST_PATH
+            X_test = pd.read_csv(X_test_transformed_path)
+            y_test = pd.read_csv(y_test_path)
 
-            # Transform the test data
-            X_test_transformed = preprocessor.transform(X_test)
+            # Transform the test data if needed (since it is already transformed, we skip this step)
+            # X_test_transformed = preprocessor.transform(X_test)
 
             # Predict on the test data
-            y_pred = model.predict(X_test_transformed)
+            y_pred = model.predict(X_test)
 
             # Calculate metrics
             rmse = mean_squared_error(y_test, y_pred, squared=False)

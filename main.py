@@ -35,10 +35,7 @@ def main():
         best_model, best_model_score = model_trainer.initiate_model_trainer(X_train_transformed, X_test_transformed, y_train, y_test)
         logging.info(f"Best model trained with R^2 score: {best_model_score}")
 
-        # # Model Evaluation
-        # model_evaluator = ModelEvaluation()
-        # evaluation_results = model_evaluator.evaluate(X_test_transformed_path, y_test_path)
-        # logging.info(f"Model evaluation results: {evaluation_results}")
+
 
     except Exception as e:
         logging.error(f"Error in main script: {e}")
@@ -46,3 +43,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
