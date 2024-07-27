@@ -27,7 +27,8 @@ def main():
         # Save the test data for later evaluation
         X_test_transformed_path = Config.X_TEST_TRANSFORMED_PATH
         y_test_path = Config.Y_TEST_PATH
-        pd.DataFrame(X_test_transformed).to_csv(X_test_transformed_path, index=False)
+        pd.DataFrame(X_test_transformed.toarray()).to_csv(X_test_transformed_path, index=False)
+
         pd.DataFrame(y_test).to_csv(y_test_path, index=False)
 
         # Model Training
