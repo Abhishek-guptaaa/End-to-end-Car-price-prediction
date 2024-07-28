@@ -35,7 +35,7 @@
 2. AmazonEC2FullAccess
 
 ## 3. Create ECR repo to store/save docker image
-- Save the URI: 136566696263.dkr.ecr.us-east-1.amazonaws.com/mlproject
+- Save the URI: 730335610052.dkr.ecr.us-east-1.amazonaws.com/mlproject
 
 # 4. Create EC2 machine (Ubuntu)
 
@@ -67,7 +67,6 @@ AWS_SECRET_ACCESS_KEY=
 
 AWS_REGION = us-east-1
 
-AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
-
-ECR_REPOSITORY_NAME = simple-app
+AWS_ECR_LOGIN_URI = demo>>  730335610052.dkr.ecr.us-east-1.amazonaws.com
+ECR_REPOSITORY_NAME = mlproject
 
