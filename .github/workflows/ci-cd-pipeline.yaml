@@ -1,4 +1,4 @@
-name: workflow
+name: cicd
 
 on:
   push:
