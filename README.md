@@ -1,5 +1,10 @@
 # End-to-end-Car-price-prediction
 
+
+![Screenshot 2024-07-29 002653](https://github.com/user-attachments/assets/ec0eadc5-d01f-44d7-92b2-179c4e5c6478)
+
+
+
 - data collection completed
 
 
