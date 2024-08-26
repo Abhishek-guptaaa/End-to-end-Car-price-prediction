@@ -1,4 +1,21 @@
 # End-to-end-Car-price-prediction
+This project aims to predict the prices of cars based on various features like the car’s make, model, year, mileage, and more. The project follows an end-to-end machine learning pipeline, including data collection, preprocessing, model training, evaluation, and deployment.
+
+git clone https://github.com/Abhishek-guptaaa/End-to-end-Car-price-prediction.git
+
+1.Project Structure
+2.Installation
+3.Dataset
+4.Data Preprocessing
+5.Modeling
+6.Evaluation
+7.Deployment
+8.Usage
+
+
+![Screenshot 2024-07-29 002653](https://github.com/user-attachments/assets/ec0eadc5-d01f-44d7-92b2-179c4e5c6478)
+
+
 
 - data collection completed
 
