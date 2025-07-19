@@ -3,8 +3,6 @@ This project aims to predict the prices of cars based on various features like t
 
 git clone https://github.com/Abhishek-guptaaa/End-to-end-Car-price-prediction.git
 
-web app  https://abhishek-guptaaa-end-to-end-car-price-prediction-app-zddbix.streamlit.app/
-
 1.Project Structure
 2.Installation
 3.Dataset
